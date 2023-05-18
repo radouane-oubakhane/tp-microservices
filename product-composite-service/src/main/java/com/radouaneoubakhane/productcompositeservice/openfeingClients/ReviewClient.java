@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "review-service", url = "http://localhost:7002", path = "/api/reviews")
+@FeignClient(name = "api-gateway/review-service")
 public interface ReviewClient {
-    @GetMapping(value = "/{productId}", produces = "application/json")
+    @GetMapping(value = "/api/reviews/{productId}", produces = "application/json")
     List<ReviewResponse> getReviewsOfProduct(@PathVariable int productId);
 }
